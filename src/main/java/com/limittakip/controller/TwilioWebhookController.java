@@ -3,6 +3,7 @@ package com.limittakip.controller;
 import com.limittakip.service.ExpenseService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/webhook")
 public class TwilioWebhookController {
+
+    @GetMapping
+    public ResponseEntity<String> ping() {
+        return ResponseEntity.ok("LimitTakip API is active and running!");
+    }
+
 
     private final ExpenseService expenseService;
 
