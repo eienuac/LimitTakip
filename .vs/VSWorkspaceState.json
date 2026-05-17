@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\resources",
+    "\\target",
+    "\\target\\classes",
+    "\\target\\generated-sources",
+    "\\target\\generated-sources\\annotations",
+    "\\target\\maven-status",
+    "\\target\\maven-status\\maven-compiler-plugin"
+  ],
+  "PreviewInSolutionExplorer": false
+}

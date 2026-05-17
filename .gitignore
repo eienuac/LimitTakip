@@ -1,0 +1,8 @@
+/target/
+/.idea/
+/limittakip.db
+/limittakip.db-journal
+*.class
+*.iml
+.DS_Store
+*.log
