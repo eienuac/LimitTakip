@@ -54,7 +54,7 @@ public class ExpenseService {
         // Mesaji parse et: [kategori] [tutar]
         String[] parcalar = temizMesaj.split("\\s+");
         if (parcalar.length != 2) {
-            return null;
+            return helpMessage();
         }
 
         String kategoriText = parcalar[0];
@@ -63,7 +63,7 @@ public class ExpenseService {
         // Kategori eslestirme
         Kategori kategori = Kategori.fromText(kategoriText);
         if (kategori == null) {
-            return null;
+            return "Geçersiz kategori! ❌\n\n" + helpMessage();
         }
 
         // Tutar parse
@@ -71,7 +71,7 @@ public class ExpenseService {
         try {
             tutar = Double.parseDouble(tutarText);
         } catch (NumberFormatException e) {
-            return null;
+            return "Geçersiz tutar! ❌ Lütfen sayısal bir değer girin.\n\n" + helpMessage();
         }
 
         // Kaydet
@@ -83,6 +83,18 @@ public class ExpenseService {
 
         return "Kaydedildi! Kategori: " + kategori.name() + ", Tutar: " + tutar + " TL. "
                 + "Güncel Kalan Limit: " + kalanLimit + " TL.";
+    }
+
+    private String helpMessage() {
+        return "Lütfen şu formatlardan birini kullanın:\n"
+                + "1️⃣ *Kategori Tutar* (Örn: yemek 150)\n"
+                + "2️⃣ *rapor* (Mevcut dönem harcamalarını görmek için)\n"
+                + "3️⃣ *clear* (Mevcut dönem harcamalarını sıfırlamak için)\n\n"
+                + "Desteklenen Kategoriler:\n"
+                + "🟢 yemek\n"
+                + "🟢 kahve\n"
+                + "🟢 yakıt\n"
+                + "🟢 diger";
     }
 
     /**
